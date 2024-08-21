@@ -1,0 +1,25 @@
+{
+   // Use IntelliSense to learn about possible attributes.
+   // Hover to view descriptions of existing attributes.
+   // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+   "version": "0.2.0",
+   "configurations": [
+      {
+         "name": "dlcm_ghs",
+         "request": "launch",
+         "type": "dart"
+      },
+      {
+         "name": "dlcm_ghs (profile mode)",
+         "request": "launch",
+         "type": "dart",
+         "flutterMode": "profile"
+      },
+      {
+         "name": "dlcm_ghs (release mode)",
+         "request": "launch",
+         "type": "dart",
+         "flutterMode": "release"
+      }
+   ]
+}
