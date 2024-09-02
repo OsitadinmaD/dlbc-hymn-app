@@ -56,14 +56,14 @@ class CategoriesChipWidget extends StatelessWidget {
           children: [
             PChipWidget(
               label: '  History  ', 
-              icon: const Icon(Icons.history_edu_rounded),
+              icon: const Icon(Icons.history_edu_rounded),            
               onTap: (){},
             ),
             const SizedBox(width: 20,),
             PChipWidget(
               label: 'Bible Doctrine', 
               icon: const Icon(Icons.book_rounded),
-              onTap: (){},
+              onTap: () {},
             ),
           ],
         )
