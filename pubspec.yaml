@@ -40,6 +40,7 @@ dependencies:
   intl: ^0.19.0
   smooth_page_indicator: ^1.2.0+3
   shrink_sidemenu: ^2.0.0+2-null-safety
+  syncfusion_flutter_pdfviewer: ^26.2.4
 
 dev_dependencies:
   flutter_test:
@@ -50,7 +51,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^3.0.0
+  flutter_lints: ^4.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -73,6 +74,7 @@ flutter:
     - assets/hymn_json/alphabet_order.json
     - assets/hymn_json/theme_order.json
     - assets/images/hymn_home_images/
+    - assets/pdf_files/
     
 
   # An image asset can refer to one or more resolution-specific "variants", see

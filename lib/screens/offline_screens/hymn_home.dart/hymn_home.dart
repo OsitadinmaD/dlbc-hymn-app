@@ -19,9 +19,9 @@ class HymnHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(HymnHomeController());
-    GlobalKey<SideMenuState> _sideMenukey = controller.sideMenuKey;
+    GlobalKey<SideMenuState> sideMenukey = controller.sideMenuKey;
     return SideMenu(
-      key: _sideMenukey,
+      key: sideMenukey,
       closeIcon: const Icon(Icons.close_rounded, size: 25,color: PColor.light,),
       menu: buildMenu(),
       type: SideMenuType.slideNRotate,
@@ -94,12 +94,11 @@ Widget buildMenu(){
           itemBuilder: (context, index) => ListTile(
             title: Text(SideMenuModel.sideMenuItems[index].title, style: Theme.of(context).textTheme.titleLarge!.copyWith(color: PColor.light),),
             leading: SideMenuModel.sideMenuItems[index].icon,
-            onTap: SideMenuModel.sideMenuItems[index].onTap,
-          ), 
-          itemCount: SideMenuModel.sideMenuItems.length
+            onTap: SideMenuModel.sideMenuItems[index].onTap,     
+          ),     
+          itemCount: SideMenuModel.sideMenuItems.length     
         ),
-      )
-    ],
-  
+      )   
+    ], 
   );
-}
+} 
