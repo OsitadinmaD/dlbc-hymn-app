@@ -75,6 +75,7 @@ flutter:
     - assets/hymn_json/theme_order.json
     - assets/images/hymn_home_images/
     - assets/pdf_files/
+    - assets/pdf_files/
     
 
   # An image asset can refer to one or more resolution-specific "variants", see
