@@ -41,6 +41,7 @@ dependencies:
   smooth_page_indicator: ^1.2.0+3
   shrink_sidemenu: ^2.0.0+2-null-safety
   syncfusion_flutter_pdfviewer: ^26.2.4
+  rating_dialog: ^2.0.4
 
 dev_dependencies:
   flutter_test:

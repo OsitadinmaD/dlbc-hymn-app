@@ -24,7 +24,7 @@ class FeedbackScreen extends StatelessWidget {
         leading: IconButton(onPressed: (){
           Get.back();
           sideMenuController.openAndCloseSideMenu();
-        }, icon: const Icon(Icons.arrow_back_rounded,size: 25,)),
+        }, icon: const Icon(Icons.close_rounded,size: 25,)),
         actions: [
           TextButton(onPressed: (){}, child: Text('Submit', style: Theme.of(context).textTheme.labelLarge,))
         ],

@@ -1,3 +1,4 @@
+import 'package:dlcm_ghs/screens/offline_screens/doctrinal_screen/bible_doctrine_screen.dart';
 import 'package:dlcm_ghs/screens/offline_screens/hymnal_screens/contents_screen/contents_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -63,7 +64,7 @@ class CategoriesChipWidget extends StatelessWidget {
             PChipWidget(
               label: 'Bible Doctrine', 
               icon: const Icon(Icons.book_rounded),
-              onTap: () {},
+              onTap: () => Get.to(() => const PDFScreenView()),
             ),
           ],
         )

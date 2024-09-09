@@ -33,6 +33,11 @@ class HymnHome extends StatelessWidget {
             controller.openAndCloseSideMenu();
             }),
           title: Text('GOSPEL HYMNS',style: Theme.of(context).textTheme.headlineMedium,),
+          actions: [
+            IconButton(icon: Icon(Icons.share_rounded, size: 25),
+            onPressed: (){},
+            )
+          ]
         ),
         body: SafeArea(
           child: Padding(
