@@ -5,26 +5,24 @@ import 'package:dlcm_ghs/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../search_list_screen/controller/search_list_controller.dart';
-import 'widget/hymn_content_view.dart';
+import '../../../detail_screen/widget/hymn_content_view.dart';
 
 
 
 
-class DetailsScreen extends StatefulWidget {
+class ContentsDetailsScreen extends StatefulWidget {
   final dynamic hymn;
-  const DetailsScreen({super.key, required this.hymn});
+  const ContentsDetailsScreen({super.key, required this.hymn});
 
   @override
-  State<DetailsScreen> createState() => _DetailsScreenState();
+  State<ContentsDetailsScreen> createState() => _ContentsDetailsScreenState();
 }
 
-class _DetailsScreenState extends State<DetailsScreen> {
+class _ContentsDetailsScreenState extends State<ContentsDetailsScreen> {
   
   @override
   Widget build(BuildContext context) {
     final hymnDetails = HymnContentView(hymn: widget.hymn); 
-    final favoriteController = Get.put(permanent: true, SearchBarController());
     final pageController = Get.put(DetailsPageController());
     final theme = Theme.of(context);
     
@@ -35,12 +33,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
           fontSize: Psizes.fontSizeLg),
         ),
         leading: IconButton(onPressed: () => Get.back(), icon: const Icon(Icons.arrow_back_rounded,size: 30)),
-        actions: [
-          Obx( () => IconButton(onPressed: () => favoriteController.addToFavoriteScreen(widget.hymn), 
-            icon: Icon(Icons.favorite_rounded,size: 30,
-            color:  favoriteController.favoriteColor(widget.hymn),))
-          ),
-          IconButton(onPressed: () async {
+        actions: [IconButton(onPressed: () async {
             await PBottomSheet.detailsBottomSheet(context);
           }, 
           icon: const Icon(Icons.settings_rounded,size: 30,)),

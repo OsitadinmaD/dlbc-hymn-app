@@ -4,8 +4,8 @@ import 'package:get/get.dart';
 
 import '../../../../../../../utils/constants/sizes.dart';
 import '../../../../../../../utils/constants/text_strings.dart';
-import '../../../../detail_screen/detail_screen.dart';
 import '../../../../model_classes/topical_index_model.dart';
+import '../../content_hymn_detail_screen/content_hymn_details.dart';
 
 class TopicalContentsExpansionWidget {
   TopicalContentsExpansionWidget._();
@@ -67,7 +67,7 @@ class TopicalContentsExpansionWidget {
                           radius: 25,
                           child: Image.asset(PTexts.hymnLogoImageString, fit: BoxFit.cover,),
                         ),
-                        onTap: () => Get.to(() => DetailsScreen(hymn: content.generalIndex[index])),
+                        onTap: () => Get.to(() => ContentsDetailsScreen(hymn: content.generalIndex[index])),
                       ),
                     ),
                   ),

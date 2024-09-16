@@ -16,7 +16,7 @@ class SearchBarScreen extends StatelessWidget {
     final searchController = Get.put(SearchBarController());
 
     List<HymnModel> searchedHymn = searchController.searchResult;
-    List<HymnModel> hymns = searchController.hymnnListViews;
+    List<HymnModel> hymns = searchController.hymnListViews;
 
 
     return Scaffold(

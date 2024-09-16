@@ -1,10 +1,10 @@
+import 'package:dlcm_ghs/screens/offline_screens/hymnal_screens/contents_screen/screens/content_hymn_detail_screen/content_hymn_details.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../../../../utils/constants/sizes.dart';
 import '../../../../../../../utils/constants/text_strings.dart';
-import '../../../../detail_screen/detail_screen.dart';
 import '../../../../model_classes/general_index_model_class.dart';
 
 class AlphabeticExpansionWidget {
@@ -68,11 +68,11 @@ class AlphabeticExpansionWidget {
                           radius: 25,
                           child: Image.asset(PTexts.hymnLogoImageString,fit: BoxFit.cover,),
                         ),
-                        onTap: () => Get.to(() => DetailsScreen(hymn: hymn.generalIndex[index])),
+                        onTap: () => Get.to(() => ContentsDetailsScreen(hymn: hymn.generalIndex[index])),
                       ),
                     ),
                   ),
-                          ),
+                ),
                 ),
               )
           );
