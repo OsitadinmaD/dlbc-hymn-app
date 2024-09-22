@@ -28,6 +28,7 @@ class RateScreen extends StatelessWidget {
               Get.back();
               sideMenuController.openAndCloseSideMenu();
             },
+            tooltip: 'Back',
             icon: const Icon(
               Icons.close_rounded,
               size: 25,

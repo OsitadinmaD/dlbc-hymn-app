@@ -6,8 +6,8 @@ import '../../../../utils/constants/colors.dart';
 import '../../../../utils/constants/helpers/helper_fncs.dart';
 import '../../../../utils/constants/sizes.dart';
 import '../../../../utils/constants/text_strings.dart';
+import '../../favorite_screen/persisting_services/favorite_service.dart';
 import '../../hymnal_screens/detail_screen/detail_screen.dart';
-import '../../hymnal_screens/search_list_screen/controller/search_list_controller.dart';
 
 class FavoriteContainerWidget extends StatefulWidget {
   const FavoriteContainerWidget({
@@ -22,7 +22,7 @@ class FavoriteContainerWidget extends StatefulWidget {
 class _FavoriteContainerWidgetState extends State<FavoriteContainerWidget> {
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(SearchBarController(), permanent: true);
+    final controller = Get.put(FavoriteService(), permanent: true);
     return Expanded(
         child: SingleChildScrollView(
       child: Container(

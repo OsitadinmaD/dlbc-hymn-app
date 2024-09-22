@@ -37,7 +37,7 @@ class _ContentsScreenState extends State<ContentsScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('CONTENTS', style: Theme.of(context).textTheme.headlineMedium,),
-        leading: IconButton(onPressed: ()=> Get.back(), icon: const Icon(Icons.arrow_back_rounded,size: 25,)),
+        leading: IconButton(tooltip: 'Back', onPressed: ()=> Get.back(), icon: const Icon(Icons.arrow_back_rounded,size: 25,)),
       ),
       body: SafeArea(
         child:  _currentPage,

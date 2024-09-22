@@ -5,7 +5,7 @@ import 'package:dlcm_ghs/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../search_list_screen/controller/search_list_controller.dart';
+import '../../favorite_screen/persisting_services/favorite_service.dart';
 import 'widget/hymn_content_view.dart';
 
 
@@ -24,7 +24,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
   @override
   Widget build(BuildContext context) {
     final hymnDetails = HymnContentView(hymn: widget.hymn); 
-    final favoriteController = Get.put(permanent: true, SearchBarController());
+    final favoriteController = Get.put(permanent: true, FavoriteService());
     final pageController = Get.put(DetailsPageController());
     final theme = Theme.of(context);
     
@@ -38,7 +38,10 @@ class _DetailsScreenState extends State<DetailsScreen> {
         actions: [
           Obx( () => IconButton(onPressed: () => favoriteController.addToFavoriteScreen(widget.hymn), 
             icon: Icon(Icons.favorite_rounded,size: 30,
-            color:  favoriteController.favoriteColor(widget.hymn),))
+            color:  favoriteController.favoriteColor(widget.hymn),),
+            tooltip: favoriteController.favoriteHymns.contains(widget.hymn) ? 'Remove from Favorite' : 'Add to Favorite',
+            )
+            
           ),
           IconButton(onPressed: () async {
             await PBottomSheet.detailsBottomSheet(context);

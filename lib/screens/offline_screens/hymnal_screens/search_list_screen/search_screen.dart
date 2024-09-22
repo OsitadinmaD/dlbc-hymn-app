@@ -12,7 +12,7 @@ class SearchBarScreen extends StatelessWidget {
   const SearchBarScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext  context) {
     final searchController = Get.put(SearchBarController());
 
     List<HymnModel> searchedHymn = searchController.searchResult;
@@ -31,10 +31,12 @@ class SearchBarScreen extends StatelessWidget {
                 child: Card(
                   child: ListTile(
                     leading:IconButton(
+                      tooltip: 'Back',
                       onPressed: () => Get.back(), 
                       icon: const Icon(Icons.arrow_back_ios_rounded,size: 20,)
                     ),
                     trailing: IconButton(
+                      tooltip: 'Clear',
                       icon: const Icon(Icons.clear, size: 20,),
                       onPressed: (){
                         searchController.textController.clear();

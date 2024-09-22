@@ -17,7 +17,7 @@ class AboutScreen extends StatelessWidget {
         leading: IconButton(onPressed: (){
           Get.back();
           sideMenuController.openAndCloseSideMenu();
-        }, icon: const Icon(Icons.close_rounded,size: 25,)),
+        }, icon: const Icon(Icons.close_rounded,size: 25,), tooltip: 'Back',),
         actions: const [],
       ),
       body: SafeArea(

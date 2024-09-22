@@ -1,5 +1,6 @@
+import 'package:dlcm_ghs/screens/offline_screens/favorite_screen/persisting_services/favorite_service.dart';
 import 'package:dlcm_ghs/screens/offline_screens/hymnal_screens/hymn_list_screen/hymn_list.dart';
-import 'package:dlcm_ghs/screens/offline_screens/hymnal_screens/search_list_screen/controller/search_list_controller.dart';
+import 'package:dlcm_ghs/utils/constants/colors.dart';
 import 'package:dlcm_ghs/utils/constants/sizes.dart';
 import 'package:dlcm_ghs/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +15,7 @@ class FavoriteScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller =
-        Get.put<SearchBarController>(SearchBarController(), permanent: true);
+        Get.put<FavoriteService>(FavoriteService(), permanent: true);
 
     //List<HymnModel> hymns = controller.favoriteHymns;
     return Scaffold(
@@ -29,17 +30,7 @@ class FavoriteScreen extends StatelessWidget {
               Icons.arrow_back_rounded,
               size: 25,
             )),
-        actions: [
-          OutlinedButton(
-              onPressed: () => Get.to(() => const HymnListScreen()),
-              child: Text(
-                'ADD',
-                style: Theme.of(context)
-                    .textTheme
-                    .labelLarge!
-                    .copyWith(fontWeight: FontWeight.w600),
-              ))
-        ],
+        actions: const [],
       ),
       body: SafeArea(
         child: Padding(
@@ -73,6 +64,7 @@ class FavoriteScreen extends StatelessWidget {
                                 onPressed: () {
                                   controller.removeFromFavoriteScreen(index);
                                 },
+                                tooltip: controller.favoriteHymns.contains(controller.favoriteHymns[index]) ? 'Remove from Favorite' : 'Add to Favorite',
                                 icon: Icon(
                                   Icons.favorite_rounded,
                                   size: 25,
@@ -105,6 +97,8 @@ class FavoriteScreen extends StatelessWidget {
           ),
         ),
       ),
+      floatingActionButton: FloatingActionButton(onPressed: () => Get.to(() => const HymnListScreen()), tooltip: 'Add to Favorite', backgroundColor: !Get.isDarkMode ? const Color.fromARGB(177, 36, 43, 107) : 
+    const Color.fromARGB(177, 63, 106, 199), foregroundColor: PColor.light,),
     );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:dlcm_ghs/screens/offline_screens/favorite_screen/persisting_services/favorite_service.dart';
 import 'package:dlcm_ghs/screens/offline_screens/hymnal_screens/model_classes/hymn_model_class.dart';
 import 'package:dlcm_ghs/screens/offline_screens/hymnal_screens/search_list_screen/search_screen.dart';
 import 'package:dlcm_ghs/utils/constants/sizes.dart';
@@ -14,6 +15,7 @@ class HymnListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put<SearchBarController>(SearchBarController(),permanent: true);
+    final favoriteController = Get.put<FavoriteService>(FavoriteService(),permanent: true);
   
 
     List<HymnModel> hymns = controller.hymnListViews;
@@ -22,10 +24,10 @@ class HymnListScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('DCLM HYMNS', style: Theme.of(context).textTheme.headlineMedium,),
-        leading: IconButton(onPressed: ()=> Get.back(), icon: const Icon(Icons.arrow_back_rounded,size: 25,)),
+        leading: IconButton(tooltip: 'Back', onPressed: ()=> Get.back(), icon: const Icon(Icons.arrow_back_rounded,size: 25,)),
         actions: [
-          IconButton(onPressed: () => Get.to(() => const SearchBarScreen()), icon: const Icon(Icons.search_rounded,size: 25,)),
-          IconButton(onPressed: (){}, icon: const Icon(Icons.settings_rounded,size: 25,))
+          IconButton(tooltip: 'Search', onPressed: () => Get.to(() => const SearchBarScreen()), icon: const Icon(Icons.search_rounded,size: 25,)),
+          IconButton(tooltip: 'Settings', onPressed: (){}, icon: const Icon(Icons.settings_rounded,size: 25,))
         ],
       ),
       body: Obx(() => SafeArea(
@@ -45,12 +47,14 @@ class HymnListScreen extends StatelessWidget {
                         ),
                         title: Text(hymns[index].title, style: Theme.of(context).textTheme.titleLarge,),
                         subtitle: Text(hymns[index].subtitle, style: Theme.of(context).textTheme.titleSmall,),
-                        trailing: IconButton(onPressed: (){
-                          controller.addToFavoriteScreen(hymns[index]);
-                        },
-                        icon: Obx( () => Icon(Icons.favorite_rounded,size: 25,
-                            color: controller.favoriteColor(hymns[index]),
-                        ))),
+                        trailing: Obx( () => IconButton(onPressed: (){
+                            favoriteController.addToFavoriteScreen(hymns[index]);
+                          },
+                          tooltip: favoriteController.favoriteHymns.contains(hymns[index]) ? 'Remove from Favorite' : 'Add to Favorite',
+                          icon: Icon(Icons.favorite_rounded,size: 25,
+                              color: favoriteController.favoriteColor(hymns[index]),
+                          )),
+                        ),
                         onTap: () => Get.to(() => DetailsScreen(hymn: hymns[index])),
                         )
                     ),

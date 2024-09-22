@@ -27,15 +27,16 @@ class HymnHome extends StatelessWidget {
       type: SideMenuType.slideNRotate,
       child: Scaffold(
         appBar: AppBar(
-          leading: IconButton(icon: const Icon(Icons.menu_rounded,size: 25,),
+          leading: IconButton(icon: const Icon(Icons.menu_rounded,size: 25,),tooltip: 'Menu',
           onPressed: () {
             Get.back();
             controller.openAndCloseSideMenu();
             }),
           title: Text('GOSPEL HYMNS',style: Theme.of(context).textTheme.headlineMedium,),
           actions: [
-            IconButton(icon: Icon(Icons.share_rounded, size: 25),
+            IconButton(icon: const Icon(Icons.share_rounded, size: 25),
             onPressed: (){},
+            tooltip: 'Share',
             )
           ]
         ),
