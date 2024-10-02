@@ -14,8 +14,8 @@ class HymnListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put<SearchBarController>(SearchBarController(),permanent: true);
-    final favoriteController = Get.put<FavoriteService>(FavoriteService(),permanent: true);
+    final controller = Get.put<SearchBarController>(SearchBarController());
+    final favoriteController = Get.put<FavoriteService>(FavoriteService());
   
 
     List<HymnModel> hymns = controller.hymnListViews;
@@ -35,7 +35,7 @@ class HymnListScreen extends StatelessWidget {
             padding: Psizes.defaultPaddingOnly2(),
             child: ListView.builder(
                 itemCount: hymns.length,
-                itemBuilder: (context, index) {
+                itemBuilder: (context, index){
                   return Card(
                     shape: const StadiumBorder(),
                     child: Padding(
@@ -48,11 +48,12 @@ class HymnListScreen extends StatelessWidget {
                         title: Text(hymns[index].title, style: Theme.of(context).textTheme.titleLarge,),
                         subtitle: Text(hymns[index].subtitle, style: Theme.of(context).textTheme.titleSmall,),
                         trailing: Obx( () => IconButton(onPressed: (){
-                            favoriteController.addToFavoriteScreen(hymns[index]);
+                            favoriteController.toggleFavoriteHymns(hymns[index]);
+                            favoriteController.saveToSharedPref();
                           },
                           tooltip: favoriteController.favoriteHymns.contains(hymns[index]) ? 'Remove from Favorite' : 'Add to Favorite',
                           icon: Icon(Icons.favorite_rounded,size: 25,
-                              color: favoriteController.favoriteColor(hymns[index]),
+                              color: controller.favoriteColor(hymns[index]),
                           )),
                         ),
                         onTap: () => Get.to(() => DetailsScreen(hymn: hymns[index])),

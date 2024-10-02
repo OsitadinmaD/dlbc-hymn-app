@@ -1,4 +1,4 @@
-import 'package:dlcm_ghs/screens/offline_screens/hymnal_screens/detail_screen/bottom_sheets/bottom_sheet.dart';
+import 'package:dlcm_ghs/screens/offline_screens/hymnal_screens/detail_screen/settings/settings.dart';
 import 'package:dlcm_ghs/screens/offline_screens/hymnal_screens/detail_screen/controller/details_page_controller.dart';
 import 'package:dlcm_ghs/screens/offline_screens/hymnal_screens/detail_screen/widget/buttom_appbar.dart';
 import 'package:dlcm_ghs/utils/constants/sizes.dart';
@@ -24,7 +24,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
   @override
   Widget build(BuildContext context) {
     final hymnDetails = HymnContentView(hymn: widget.hymn); 
-    final favoriteController = Get.put(permanent: true, FavoriteService());
+    final favoriteController = Get.put(FavoriteService());
     final pageController = Get.put(DetailsPageController());
     final theme = Theme.of(context);
     
@@ -36,7 +36,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
         ),
         leading: IconButton(onPressed: () => Get.back(), icon: const Icon(Icons.arrow_back_rounded,size: 30)),
         actions: [
-          Obx( () => IconButton(onPressed: () => favoriteController.addToFavoriteScreen(widget.hymn), 
+          Obx( () => IconButton(onPressed: () => favoriteController.toggleFavoriteHymns(widget.hymn), 
             icon: Icon(Icons.favorite_rounded,size: 30,
             color:  favoriteController.favoriteColor(widget.hymn),),
             tooltip: favoriteController.favoriteHymns.contains(widget.hymn) ? 'Remove from Favorite' : 'Add to Favorite',
@@ -44,8 +44,9 @@ class _DetailsScreenState extends State<DetailsScreen> {
             
           ),
           IconButton(onPressed: () async {
-            await PBottomSheet.detailsBottomSheet(context);
+            await PSettingsBottomSheet.detailsBottomSheet(context);
           }, 
+          tooltip: 'Settings',
           icon: const Icon(Icons.settings_rounded,size: 30,)),
         ],
         scrolledUnderElevation: 5,

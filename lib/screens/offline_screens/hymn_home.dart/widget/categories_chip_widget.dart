@@ -1,9 +1,10 @@
-import 'package:dlcm_ghs/screens/offline_screens/doctrinal_screen/bible_doctrine_screen.dart';
 import 'package:dlcm_ghs/screens/offline_screens/hymnal_screens/contents_screen/contents_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../utils/constants/sizes.dart';
+import '../../doctrinal_screen/bible_doctrine/bible_doctrine_screen.dart';
+import '../../doctrinal_screen/history_screen/history_screen.dart';
 import '../../favorite_screen/favorite_screen.dart';
 import '../../hymnal_screens/hymn_list_screen/hymn_list.dart';
 import 'chip_widget.dart';
@@ -58,7 +59,7 @@ class CategoriesChipWidget extends StatelessWidget {
             PChipWidget(
               label: '  History  ', 
               icon: const Icon(Icons.history_edu_rounded),            
-              onTap: (){},
+              onTap: () => Get.to(() => const HistoryPDFScreenView()),
             ),
             const SizedBox(width: 20,),
             PChipWidget(

@@ -1,11 +1,8 @@
-import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/constants/helpers/helper_fncs.dart';
-import '../../model_classes/hymn_model_class.dart';
 
 class PButtomAppBarWidget extends StatefulWidget {
   final void Function()? onPressedNext;
@@ -25,25 +22,6 @@ class PButtomAppBarWidget extends StatefulWidget {
 }
 
 class _PButtomAppBarWidgetState extends State<PButtomAppBarWidget>{
-  final List<HymnModel> _hymnModels = [];
-
-  Future<Null> getHymnModel() async {
-    String hymnLoad = await rootBundle.loadString('assets/hymn_json/hymns.json');
-    final hymnData = await jsonDecode(hymnLoad);
-
-    setState(() {
-      for(Map<String,dynamic> hymnMap in hymnData){
-        _hymnModels.add(HymnModel.fromJson(hymnMap));
-      }
-    });
-  }
-
-  @override
-  void initState() {
-    super.initState();
-
-    getHymnModel();
-  }
     @override
   Widget build(BuildContext context) {
     return Positioned(

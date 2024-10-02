@@ -5,13 +5,39 @@ import 'package:dlcm_ghs/screens/authentication_screens/password_configuration_s
 import 'package:dlcm_ghs/screens/authentication_screens/sign_up_screen/sign_up_page.dart';
 import 'package:dlcm_ghs/screens/authentication_screens/success_screen/successful.dart';
 import 'package:dlcm_ghs/screens/authentication_screens/verify_email_screen/verify_email.dart';
+import 'package:dlcm_ghs/screens/offline_screens/favorite_screen/persisting_services/favorite_service.dart';
+import 'package:dlcm_ghs/screens/offline_screens/hymnal_screens/detail_screen/settings/controller/font_size_controller.dart';
+import 'package:dlcm_ghs/screens/offline_screens/hymnal_screens/detail_screen/settings/controller/hymn_color_controller.dart';
+import 'package:dlcm_ghs/screens/offline_screens/hymnal_screens/search_list_screen/controller/search_list_controller.dart';
 import 'package:dlcm_ghs/themedata/themedata.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'screens/offline_screens/hymn_home.dart/hymn_home.dart';
-void main() {
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  initServices();
+  initServices2();
   runApp(const MyApp());
+}
+
+Future<void> initServices() async {
+  // ignore: avoid_print
+  print('starting services....');
+  await Get.putAsync<FavoriteService>(() async => FavoriteService());
+  await Get.putAsync<HymnColorController>(() async => HymnColorController());
+  // ignore: avoid_print
+  print('All services started....');
+}
+
+Future<void> initServices2() async {
+  // ignore: avoid_print
+  print('starting services....');
+  await Get.putAsync<FontSizeController>(() async => FontSizeController());
+  await Get.putAsync<SearchBarController>(() async => SearchBarController());
+  // ignore: avoid_print
+  print('All services started....');
 }
 
 class MyApp extends StatelessWidget {

@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../controller/font_size_controller.dart';
+import '../settings/controller/font_size_controller.dart';
+import '../settings/controller/hymn_color_controller.dart';
 
 class HymnContentView {
   dynamic hymn;
   HymnContentView({required this.hymn});
 
-  final controller = Get.put(FontSizeController());
+  final sizeController = Get.put(FontSizeController());
+  final colorController = Get.put(HymnColorController());
 
   List<Widget> stanza1(ThemeData theme){
     List<Widget> stanza_1 = [];
     for(var i = 0; i < hymn.stanza1.length ; i++){
       stanza_1.add(Obx(() => Text(
           hymn.stanza1[i],
-          style: theme.textTheme.bodyMedium!.copyWith(fontSize: controller.fontSize.value),
+          style: theme.textTheme.bodyMedium!.copyWith(fontSize: sizeController.fontSize.value, color: colorController.stanzaColor.value),
         ),
       ));
     }
@@ -26,7 +28,7 @@ class HymnContentView {
     for(var i = 0; i < hymn.stanza2.length ; i++){
       stanza_2.add(Obx(() => Text(
           hymn.stanza2[i],
-          style: theme.textTheme.bodyMedium!.copyWith(fontSize: controller.fontSize.value),
+          style: theme.textTheme.bodyMedium!.copyWith(fontSize: sizeController.fontSize.value,color: colorController.stanzaColor.value),
         ),
       ));
     }
@@ -38,7 +40,7 @@ class HymnContentView {
     for(var i = 0; i < hymn.stanza3.length ; i++){
       stanza_3.add(Obx(() => Text(
           hymn.stanza3[i],
-          style: theme.textTheme.bodyMedium!.copyWith(fontSize: controller.fontSize.value),
+          style: theme.textTheme.bodyMedium!.copyWith(fontSize: sizeController.fontSize.value,color: colorController.stanzaColor.value),
         ),
       ));
     }
@@ -50,7 +52,7 @@ class HymnContentView {
     for(var i = 0; i < hymn.stanza4.length ; i++){
       stanza_4.add(Obx(() => Text(
           hymn.stanza4[i],
-          style: theme.textTheme.bodyMedium!.copyWith(fontSize: controller.fontSize.value),
+          style: theme.textTheme.bodyMedium!.copyWith(fontSize: sizeController.fontSize.value,color: colorController.stanzaColor.value),
         ),
       ));
     }
@@ -62,7 +64,7 @@ class HymnContentView {
     for(var i = 0; i < hymn.stanza5.length ; i++){
       stanza_5.add(Obx(() => Text(
           hymn.stanza5[i],
-          style: theme.textTheme.bodyMedium!.copyWith(fontSize: controller.fontSize.value),
+          style: theme.textTheme.bodyMedium!.copyWith(fontSize: sizeController.fontSize.value,color: colorController.stanzaColor.value),
         ),
       ));
     }
@@ -74,7 +76,7 @@ class HymnContentView {
     for(var i = 0; i < hymn.stanza6.length ; i++){
       stanza_6.add(Obx(() => Text(
           hymn.stanza6[i],
-          style: theme.textTheme.bodyMedium!.copyWith(fontSize: controller.fontSize.value),
+          style: theme.textTheme.bodyMedium!.copyWith(fontSize: sizeController.fontSize.value,color: colorController.stanzaColor.value),
         ),
       ));
     }
@@ -86,7 +88,7 @@ class HymnContentView {
     for(var i = 0; i < hymn.stanza7.length ; i++){
       stanza_7.add(Obx(() => Text(
           hymn.stanza7[i],
-          style: theme.textTheme.bodyMedium!.copyWith(fontSize: controller.fontSize.value),
+          style: theme.textTheme.bodyMedium!.copyWith(fontSize: sizeController.fontSize.value,color: colorController.stanzaColor.value),
         ),
       ));
     }
@@ -98,7 +100,7 @@ class HymnContentView {
     for(var i = 0; i < hymn.stanza8.length ; i++){
       stanza_8.add(Obx(() => Text(
           hymn.stanza8[i],
-          style: theme.textTheme.bodyMedium!.copyWith(fontSize: controller.fontSize.value),
+          style: theme.textTheme.bodyMedium!.copyWith(fontSize: sizeController.fontSize.value,color: colorController.stanzaColor.value),
         ),
       ));
     }
@@ -114,7 +116,8 @@ class HymnContentView {
             fontWeight: FontWeight.bold,
             fontStyle: FontStyle.italic,
             fontFamily: 'Poppins',
-            fontSize: controller.fontSize.value
+            fontSize: sizeController.fontSize.value,
+            color: colorController.chorusColor.value
           ),
         ),
       ));
@@ -131,7 +134,8 @@ class HymnContentView {
             fontWeight: FontWeight.bold,
             fontStyle: FontStyle.italic,
             fontFamily: 'Poppins',
-            fontSize: controller.fontSize.value,
+            fontSize: sizeController.fontSize.value,
+            color: colorController.chorusColor.value
           ),
         ),
       ));
@@ -148,7 +152,8 @@ class HymnContentView {
             fontWeight: FontWeight.bold,
             fontStyle: FontStyle.italic,
             fontFamily: 'Poppins',
-            fontSize: controller.fontSize.value
+            fontSize: sizeController.fontSize.value,
+            color: colorController.chorusColor.value
           ),
         ),
       ));
@@ -165,7 +170,8 @@ class HymnContentView {
             fontWeight: FontWeight.bold,
             fontStyle: FontStyle.italic,
             fontFamily: 'Poppins',
-            fontSize: controller.fontSize.value
+            fontSize: sizeController.fontSize.value,
+            color: colorController.chorusColor.value
           ),
         ),
       ));
@@ -182,7 +188,8 @@ class HymnContentView {
             fontWeight: FontWeight.bold,
             fontStyle: FontStyle.italic,
             fontFamily: 'Poppins',
-            fontSize: controller.fontSize.value
+            fontSize: sizeController.fontSize.value,
+            color: colorController.chorusColor.value
           ),
         ),
       ));
@@ -199,7 +206,8 @@ class HymnContentView {
             fontWeight: FontWeight.bold,
             fontStyle: FontStyle.italic,
             fontFamily: 'Poppins',
-            fontSize: controller.fontSize.value
+            fontSize: sizeController.fontSize.value,
+            color: colorController.chorusColor.value
           ),
         ),
       ));
@@ -216,7 +224,8 @@ class HymnContentView {
             fontWeight: FontWeight.bold,
             fontStyle: FontStyle.italic,
             fontFamily: 'Poppins',
-            fontSize: controller.fontSize.value
+            fontSize: sizeController.fontSize.value,
+            color: colorController.chorusColor.value
           ),
         ),
       ));
@@ -233,7 +242,8 @@ class HymnContentView {
             fontWeight: FontWeight.bold,
             fontStyle: FontStyle.italic,
             fontFamily: 'Poppins',
-            fontSize: controller.fontSize.value
+            fontSize: sizeController.fontSize.value,
+            color: colorController.chorusColor.value
           ),
         ),
       ));
@@ -250,7 +260,8 @@ class HymnContentView {
             fontWeight: FontWeight.bold,
             fontStyle: FontStyle.italic,
             fontFamily: 'Poppins',
-            fontSize: controller.fontSize.value
+            fontSize: sizeController.fontSize.value,
+            color: colorController.chorusColor.value
           ),
         ),
       ));
@@ -268,7 +279,8 @@ class HymnContentView {
             fontWeight: FontWeight.bold,
             fontStyle: FontStyle.italic,
             fontFamily: 'Poppins',
-            fontSize: controller.fontSize.value
+            fontSize: sizeController.fontSize.value,
+            color: colorController.chorusColor.value
           ),
         ),
       ));
@@ -285,7 +297,8 @@ class HymnContentView {
             fontWeight: FontWeight.bold,
             fontStyle: FontStyle.italic,
             fontFamily: 'Poppins',
-            fontSize: controller.fontSize.value
+            fontSize: sizeController.fontSize.value,
+            color: colorController.chorusColor.value
           ),
         ),
       ));
@@ -302,7 +315,8 @@ class HymnContentView {
             fontWeight: FontWeight.bold,
             fontStyle: FontStyle.italic,
             fontFamily: 'Poppins',
-            fontSize: controller.fontSize.value
+            fontSize: sizeController.fontSize.value,
+            color: colorController.chorusColor.value
           ),
         ),
       ));

@@ -15,7 +15,7 @@ class FavoriteScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller =
-        Get.put<FavoriteService>(FavoriteService(), permanent: true);
+        Get.put<FavoriteService>(FavoriteService());
 
     //List<HymnModel> hymns = controller.favoriteHymns;
     return Scaffold(
@@ -64,7 +64,7 @@ class FavoriteScreen extends StatelessWidget {
                                 onPressed: () {
                                   controller.removeFromFavoriteScreen(index);
                                 },
-                                tooltip: controller.favoriteHymns.contains(controller.favoriteHymns[index]) ? 'Remove from Favorite' : 'Add to Favorite',
+                                tooltip:'Remove from Favorite',
                                 icon: Icon(
                                   Icons.favorite_rounded,
                                   size: 25,
@@ -97,8 +97,13 @@ class FavoriteScreen extends StatelessWidget {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(onPressed: () => Get.to(() => const HymnListScreen()), tooltip: 'Add to Favorite', backgroundColor: !Get.isDarkMode ? const Color.fromARGB(177, 36, 43, 107) : 
-    const Color.fromARGB(177, 63, 106, 199), foregroundColor: PColor.light,),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => Get.to(() => const HymnListScreen()), 
+        tooltip: 'Add to Favorite', 
+        backgroundColor: !Get.isDarkMode ? const Color.fromARGB(177, 36, 43, 107) : const Color.fromARGB(177, 63, 106, 199), 
+        foregroundColor: PColor.light,
+        child: const Icon(Icons.add_rounded,size: 40,color: PColor.light,),
+      ),
     );
   }
 }

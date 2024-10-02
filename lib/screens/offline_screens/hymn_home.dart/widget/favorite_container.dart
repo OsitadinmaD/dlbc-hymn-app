@@ -22,7 +22,7 @@ class FavoriteContainerWidget extends StatefulWidget {
 class _FavoriteContainerWidgetState extends State<FavoriteContainerWidget> {
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(FavoriteService(), permanent: true);
+    final controller = Get.put(FavoriteService());
     return Expanded(
         child: SingleChildScrollView(
       child: Container(
@@ -75,42 +75,45 @@ class _FavoriteContainerWidgetState extends State<FavoriteContainerWidget> {
                   () => controller.favoriteHymns.isNotEmpty
                       ? Padding(
                           padding: const EdgeInsets.only(left: 9.0, right: 9.0),
-                          child: ListView.separated(
+                          child: ListView.builder(
                             itemCount: controller.favoriteHymns.length,
-                            separatorBuilder: (context, index) => const Divider(),
+                            //separatorBuilder: (context, index) => const Divider(),
                             itemBuilder: (context, index) {
                               if (index >= 4) {
                                 return null;
                               } else {
-                                return ListTile(
-                                  leading: CircleAvatar(
-                                    radius: 25,
-                                    child: Image.asset(
-                                      PTexts.hymnLogoImageString,
-                                      fit: BoxFit.cover,
+                                return Card(
+                                  shape: const OutlineInputBorder(borderSide: BorderSide.none,borderRadius: BorderRadius.all(Radius.circular(8.0)),gapPadding: 1),
+                                  child: ListTile(
+                                    leading: CircleAvatar(
+                                      radius: 25,
+                                      child: Image.asset(
+                                        PTexts.hymnLogoImageString,
+                                        fit: BoxFit.cover,
+                                      ),
                                     ),
+                                    title: Text(
+                                      controller.favoriteHymns[index].title,
+                                      style:
+                                          Theme.of(context).textTheme.titleLarge,
+                                    ),
+                                    subtitle: Text(
+                                      controller.favoriteHymns[index].subtitle,
+                                      style:
+                                          Theme.of(context).textTheme.titleSmall,
+                                    ),
+                                    trailing: IconButton(
+                                        onPressed: () {
+                                          controller
+                                              .removeFromFavoriteScreen(index);
+                                        },
+                                        icon: Icon(Icons.favorite_rounded,
+                                              size: 25,
+                                              color: controller.favoriteColor(controller.favoriteHymns[index])
+                                        ),),
+                                    onTap: () => Get.to(() => DetailsScreen(
+                                        hymn: controller.favoriteHymns[index])),
                                   ),
-                                  title: Text(
-                                    controller.favoriteHymns[index].title,
-                                    style:
-                                        Theme.of(context).textTheme.titleLarge,
-                                  ),
-                                  subtitle: Text(
-                                    controller.favoriteHymns[index].subtitle,
-                                    style:
-                                        Theme.of(context).textTheme.titleSmall,
-                                  ),
-                                  trailing: IconButton(
-                                      onPressed: () {
-                                        controller
-                                            .removeFromFavoriteScreen(index);
-                                      },
-                                      icon: Obx( () => Icon(Icons.favorite_rounded,
-                                            size: 25,
-                                            color: controller.favoriteColor(controller.favoriteHymns[index])
-                                      )),),
-                                  onTap: () => Get.to(() => DetailsScreen(
-                                      hymn: controller.favoriteHymns[index])),
                                 );
                               }
                             },

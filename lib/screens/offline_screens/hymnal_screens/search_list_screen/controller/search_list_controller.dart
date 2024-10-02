@@ -4,14 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
+import '../../../../../utils/constants/colors.dart';
+import '../../../favorite_screen/persisting_services/favorite_service.dart';
 import '../../model_classes/hymn_model_class.dart';
 
-class SearchBarController extends GetxController{
+class SearchBarController extends GetxService{
   static SearchBarController get instance => Get.find<SearchBarController>();
+  final favoriteController = Get.put(FavoriteService());
 
 
-
-  Rx<bool> isFavorited = false.obs;
   var searchResult = <HymnModel>[].obs;
   var hymnListViews = <HymnModel>[].obs;
   final textController = TextEditingController();
@@ -44,5 +45,11 @@ class SearchBarController extends GetxController{
         searchResult.add(hymn);
        }
     }
+  }
+
+  Color favoriteColor(HymnModel hymn){
+    return  favoriteController.favoriteHymns.contains(hymn) ? 
+       (!Get.isDarkMode ? const Color.fromARGB(177, 36, 43, 107) : 
+         const Color.fromARGB(177, 63, 106, 199)) : (Get.isDarkMode ? PColor.light : PColor.dark);
   }
 }

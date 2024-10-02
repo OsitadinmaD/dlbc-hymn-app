@@ -3,7 +3,7 @@ import 'package:dlcm_ghs/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../screens/offline_screens/hymnal_screens/detail_screen/controller/font_size_controller.dart';
+import '../../screens/offline_screens/hymnal_screens/detail_screen/settings/controller/font_size_controller.dart';
 
 class PTextTheme {
   PTextTheme._();

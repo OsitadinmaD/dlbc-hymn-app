@@ -36,29 +36,29 @@ class HymnModel{
   }
 
   Map<String,dynamic> toJson(){
-    Map<String, dynamic> hymnData = <String,dynamic>{};
-    hymnData['title'] = title;
-    hymnData['subtitle'] = subtitle;
-    hymnData['stanza1'] = stanza1;
-    hymnData['stanza2'] = stanza2;
-    hymnData['stanza3'] = stanza3;
-    hymnData['stanza4'] = stanza4;
-    hymnData['stanza5'] = stanza5;
-    hymnData['stanza6'] = stanza6;
-    hymnData['stanza7'] = stanza7;
-    hymnData['stanza8'] = stanza8;
-    hymnData['chorus1'] = chorus1;
-    hymnData['chorus2'] = chorus2;
-    hymnData['chorus3'] = chorus3;
-    hymnData['chorus4'] = chorus4;
-    hymnData['chorus5'] = chorus5;
-    hymnData['chorus6'] = chorus6;
-    hymnData['chorus7'] = chorus7;
-    hymnData['chorus8'] = chorus8;
-    hymnData['interlude1'] = interlude1;
-    hymnData['interlude2'] = interlude2;
-    hymnData['interlude3'] = interlude3;
-    hymnData['interlude4'] = interlude4;
-    return hymnData;
+    return {
+    'title' : title,
+    'subtitle' : subtitle,
+    'stanza1' : stanza1,
+    'stanza2' : stanza2,
+    'stanza3' : stanza3,
+    'stanza4' : stanza4,
+    'stanza5' : stanza5,
+    'stanza6' : stanza6,
+    'stanza7' : stanza7,
+    'stanza8' : stanza8,
+    'chorus1' : chorus1,
+    'chorus2' : chorus2,
+    'chorus3' : chorus3,
+    'chorus4' : chorus4,
+    'chorus5' : chorus5,
+    'chorus6' : chorus6,
+    'chorus7' : chorus7,
+    'chorus8' : chorus8,
+    'interlude1' : interlude1,
+    'interlude2' : interlude2,
+    'interlude3' : interlude3,
+    'interlude4' : interlude4,
+    };
   }
 } 

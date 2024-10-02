@@ -1,4 +1,4 @@
-import 'package:dlcm_ghs/screens/offline_screens/hymnal_screens/detail_screen/bottom_sheets/bottom_sheet.dart';
+import 'package:dlcm_ghs/screens/offline_screens/hymnal_screens/detail_screen/settings/settings.dart';
 import 'package:dlcm_ghs/screens/offline_screens/hymnal_screens/detail_screen/controller/details_page_controller.dart';
 import 'package:dlcm_ghs/screens/offline_screens/hymnal_screens/detail_screen/widget/buttom_appbar.dart';
 import 'package:dlcm_ghs/utils/constants/sizes.dart';
@@ -34,7 +34,7 @@ class _ContentsDetailsScreenState extends State<ContentsDetailsScreen> {
         ),
         leading: IconButton(onPressed: () => Get.back(), icon: const Icon(Icons.arrow_back_rounded,size: 30)),
         actions: [IconButton(onPressed: () async {
-            await PBottomSheet.detailsBottomSheet(context);
+            await PSettingsBottomSheet.detailsBottomSheet(context);
           }, 
           icon: const Icon(Icons.settings_rounded,size: 30,)),
         ],
