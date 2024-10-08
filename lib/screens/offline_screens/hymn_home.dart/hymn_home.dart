@@ -6,6 +6,7 @@ import 'package:dlcm_ghs/utils/constants/sizes.dart';
 import 'package:dlcm_ghs/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:shrink_sidemenu/shrink_sidemenu.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'widget/categories_container_widget.dart';
@@ -18,16 +19,17 @@ class HymnHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const String appLink = 'https://play.google.com/store/apps/details?id=com.pixslide.dlcm_ghs';
     final controller = Get.put(HymnHomeController());
     GlobalKey<SideMenuState> sideMenukey = controller.sideMenuKey;
     return SideMenu(
       key: sideMenukey,
       closeIcon: const Icon(Icons.close_rounded, size: 25,color: PColor.light,),
-      menu: buildMenu(),
+      menu: buildMenu(context),
       type: SideMenuType.slideNRotate,
       child: Scaffold(
         appBar: AppBar(
-          leading: IconButton(icon: const Icon(Icons.menu_rounded,size: 25,),tooltip: 'Menu',
+          leading: IconButton(icon: const Icon(Icons.menu_rounded,size: 25,),tooltip: 'Menu', 
           onPressed: () {
             Get.back();
             controller.openAndCloseSideMenu();
@@ -35,7 +37,7 @@ class HymnHome extends StatelessWidget {
           title: Text('GOSPEL HYMNS',style: Theme.of(context).textTheme.headlineMedium,),
           actions: [
             IconButton(icon: const Icon(Icons.share_rounded, size: 25),
-            onPressed: (){},
+            onPressed: () async => await Share.share('Download the DLBC hymn app now \n$appLink'),
             tooltip: 'Share',
             )
           ]
@@ -89,12 +91,12 @@ class HymnHome extends StatelessWidget {
   }
 }
 
-Widget buildMenu(){
+Widget buildMenu(BuildContext context){
   return Column(
     mainAxisSize: MainAxisSize.min,
     children: [
       SizedBox(
-        height: PHelperFunctions.screenHeight() * 0.8,
+        height: MediaQuery.of(context).orientation == Orientation.portrait ? PHelperFunctions.screenHeight() * 0.8 : PHelperFunctions.screenWidth() * 0.3,
         child: ListView.separated(
           separatorBuilder: (context, index) => const Divider(color: PColor.light,),
           itemBuilder: (context, index) => ListTile(

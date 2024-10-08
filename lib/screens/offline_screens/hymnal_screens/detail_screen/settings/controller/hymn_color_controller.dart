@@ -35,6 +35,8 @@ class HymnColorController extends GetxService{
     final colorInt = _sharedPref.getInt('chorusColor');
     if(colorInt != null){
       chorusColor.value = Color(colorInt);
+    }else{
+      chorusColor.value = (Get.isDarkMode ? PColor.light : PColor.dark);
     }
   }
 
@@ -42,6 +44,8 @@ class HymnColorController extends GetxService{
     final colorInt = _sharedPref.getInt('stanzaColor');
     if(colorInt != null){
       stanzaColor.value = Color(colorInt);
+    }else{
+      stanzaColor.value = (Get.isDarkMode ? PColor.light : PColor.dark);
     }
   }
 

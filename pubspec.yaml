@@ -44,6 +44,7 @@ dependencies:
   rating_dialog: ^2.0.4
   shared_preferences: ^2.3.2
   share_plus: ^10.0.2
+  url_launcher: ^6.3.0
 
 dev_dependencies:
   flutter_test:

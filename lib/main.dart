@@ -8,7 +8,7 @@ import 'package:dlcm_ghs/screens/authentication_screens/verify_email_screen/veri
 import 'package:dlcm_ghs/screens/offline_screens/favorite_screen/persisting_services/favorite_service.dart';
 import 'package:dlcm_ghs/screens/offline_screens/hymnal_screens/detail_screen/settings/controller/font_size_controller.dart';
 import 'package:dlcm_ghs/screens/offline_screens/hymnal_screens/detail_screen/settings/controller/hymn_color_controller.dart';
-import 'package:dlcm_ghs/screens/offline_screens/hymnal_screens/search_list_screen/controller/search_list_controller.dart';
+import 'package:dlcm_ghs/screens/offline_screens/side_menu_items.dart/profile/controller/profile_controller.dart';
 import 'package:dlcm_ghs/themedata/themedata.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -35,7 +35,7 @@ Future<void> initServices2() async {
   // ignore: avoid_print
   print('starting services....');
   await Get.putAsync<FontSizeController>(() async => FontSizeController());
-  await Get.putAsync<SearchBarController>(() async => SearchBarController());
+  await Get.putAsync<ProfileController>(() async => ProfileController());
   // ignore: avoid_print
   print('All services started....');
 }
@@ -63,7 +63,7 @@ class MyApp extends StatelessWidget {
           GetPage(name: '/forgotPassword', page: () => const ForgotPasswordScreen(),transition: Transition.leftToRightWithFade),
           GetPage(name: '/resetPassword', page: () => const PasswordResetMailScreen(),transition: Transition.leftToRightWithFade),
         ],
-        defaultTransition: Transition.leftToRightWithFade,
+        defaultTransition: Transition.zoom,
     );
   }
 }
