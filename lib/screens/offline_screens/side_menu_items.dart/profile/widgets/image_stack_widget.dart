@@ -7,7 +7,7 @@ import '../../../../../utils/constants/text_strings.dart';
 
 class ImageStackWidget extends StatelessWidget {
   const ImageStackWidget({
-    super.key,
+    super.key,                                                                                                                       
   });
 
   @override
@@ -16,7 +16,7 @@ class ImageStackWidget extends StatelessWidget {
       children: [
         Container(
           height: PHelperFunctions.screenHeight() * 0.3,
-          width: PHelperFunctions.screenWidth() ,
+          width: PHelperFunctions.screenWidth(),
           decoration: BoxDecoration(
             color: Get.isDarkMode ? PColor.darkGrey : PColor.grey,
             borderRadius: BorderRadius.circular(20),
