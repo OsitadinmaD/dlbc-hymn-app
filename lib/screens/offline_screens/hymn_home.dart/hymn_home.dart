@@ -6,7 +6,6 @@ import 'package:dlcm_ghs/utils/constants/sizes.dart';
 import 'package:dlcm_ghs/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:share_plus/share_plus.dart';
 import 'package:shrink_sidemenu/shrink_sidemenu.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'widget/categories_container_widget.dart';
@@ -19,7 +18,7 @@ class HymnHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const String appLink = 'https://play.google.com/store/apps/details?id=com.pixslide.dlcm_ghs';
+    //const String appLink = 'https://play.google.com/store/apps/details?id=com.pixslide.dlcm_ghs';
     final controller = Get.put(HymnHomeController());
     GlobalKey<SideMenuState> sideMenukey = controller.sideMenuKey;
     return SideMenu(
@@ -37,7 +36,7 @@ class HymnHome extends StatelessWidget {
           title: Text('GOSPEL HYMNS',style: Theme.of(context).textTheme.headlineMedium,),
           actions: [
             IconButton(icon: const Icon(Icons.share_rounded, size: 25),
-            onPressed: () async => await Share.share('Download the DLBC hymn app now \n$appLink'),
+            onPressed: () {},
             tooltip: 'Share',
             )
           ]
