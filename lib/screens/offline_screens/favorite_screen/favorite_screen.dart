@@ -80,9 +80,12 @@ class FavoriteScreen extends StatelessWidget {
                   )
                 : Column(
                     children: [
-                      Image.asset(
-                        'assets/images/hymn_home_images/download-3.png',
-                        height: PHelperFunctions.screenHeight() * 0.6,
+                      Hero(
+                        tag: 'Photo1',
+                        child: Image.asset(
+                          'assets/images/hymn_home_images/download-3.png',
+                          height: PHelperFunctions.screenHeight() * 0.6,
+                        ),
                       ),
                       Text(
                         "Oops no Favorite yet!",

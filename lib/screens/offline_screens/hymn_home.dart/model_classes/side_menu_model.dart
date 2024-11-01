@@ -3,6 +3,7 @@ import 'package:dlcm_ghs/screens/offline_screens/side_menu_items.dart/social_han
 import 'package:dlcm_ghs/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:share_plus/share_plus.dart';
 
 import '../../side_menu_items.dart/about/about_screen.dart';
 import '../../side_menu_items.dart/feedback/feedback_screen.dart';
@@ -15,11 +16,13 @@ class SideMenuModel {
   
 
   const SideMenuModel({required this.icon, required this.title, required this.onTap});
+  
+  static const String appLink = 'https://play.google.com/store/apps/details?id=com.pixslide.dlcm_ghs';
 
   static List<SideMenuModel> sideMenuItems = [
     SideMenuModel(icon: const Icon(Icons.person_2_rounded, size: 25,color: PColor.light,), title: 'Profile', onTap: () => Get.to(() => const ProfileInfoScreen())),
     SideMenuModel(icon: const Icon(Icons.share_rounded, size: 25,color: PColor.light,), title: 'Share', 
-    onTap: () {},),
+    onTap: () async => Share.share(appLink),),
     SideMenuModel(icon: const Icon(Icons.rate_review_rounded, size: 25,color: PColor.light,), title: 'Rate', onTap: () => Get.to(() => const RateScreen())),
     SideMenuModel(icon: const Icon(Icons.notifications_active_rounded, size: 25,color: PColor.light,), title: 'Notifications', onTap: (){}),
     SideMenuModel(icon: const Icon(Icons.feedback_rounded, size: 25,color: PColor.light,), title: 'Feedback', onTap: () => Get.to(() => const FeedbackScreen())),

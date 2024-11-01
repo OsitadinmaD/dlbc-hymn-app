@@ -6,6 +6,7 @@ import 'package:dlcm_ghs/utils/constants/sizes.dart';
 import 'package:dlcm_ghs/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:shrink_sidemenu/shrink_sidemenu.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'widget/categories_container_widget.dart';
@@ -18,7 +19,7 @@ class HymnHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //const String appLink = 'https://play.google.com/store/apps/details?id=com.pixslide.dlcm_ghs';
+    const String appLink = 'https://play.google.com/store/apps/details?id=com.pixslide.dlcm_ghs';
     final controller = Get.put(HymnHomeController());
     GlobalKey<SideMenuState> sideMenukey = controller.sideMenuKey;
     return SideMenu(
@@ -36,7 +37,7 @@ class HymnHome extends StatelessWidget {
           title: Text('GOSPEL HYMNS',style: Theme.of(context).textTheme.headlineMedium,),
           actions: [
             IconButton(icon: const Icon(Icons.share_rounded, size: 25),
-            onPressed: () {},
+            onPressed: () async => Share.share(appLink),
             tooltip: 'Share',
             )
           ]
@@ -51,36 +52,49 @@ class HymnHome extends StatelessWidget {
                 const SizedBox(height: Psizes.sm,),
                 SizedBox(
                   width: PHelperFunctions.screenWidth(),
-                  height: 125,
-                  child: Stack(
-                    children: [
-                      ListView(
-                        controller: controller.controller,
-                        scrollDirection: Axis.horizontal,
-                        children: const [
-                          HomeImageCardWidget(image: PTexts.ghsGfix2ImageString,label: '',),
-                          HomeImageCardWidget(image: PTexts.guitarCoolImageString,label: 'Feel \nThe \nRhythm...',),
-                          HomeImageCardWidget(image: PTexts.guitarNoTextImageString,label: 'Feel \nThe \nHarmony...',),
-                        ],
-                      ),
-                      Positioned(
-                        bottom: 10,
-                        left: PHelperFunctions.screenWidth() * 0.38,
-                        child: SmoothPageIndicator(
-                          controller: controller.controller,
-                          count: 3,
-                          axisDirection: Axis.horizontal,
-                          effect: const JumpingDotEffect(),
-                          onDotClicked: (index) => controller.onDotClicked(index),
+                  height: PHelperFunctions.screenHeight() * 0.79,
+                  child: SingleChildScrollView(
+                    physics: BouncingScrollPhysics(),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                          width: PHelperFunctions.screenWidth(),
+                          height: 125,
+                          child: Stack(
+                            children: [
+                              ListView(
+                                controller: controller.controller,
+                                scrollDirection: Axis.horizontal,
+                                children: const [
+                                  HomeImageCardWidget(image: PTexts.ghsGfix2ImageString,label: '',),
+                                  HomeImageCardWidget(image: PTexts.guitarCoolImageString,label: 'Feel \nThe \nRhythm...',),
+                                  HomeImageCardWidget(image: PTexts.guitarNoTextImageString,label: 'Feel \nThe \nHarmony...',),
+                                ],
+                              ),
+                              Positioned(
+                                bottom: 10,
+                                left: PHelperFunctions.screenWidth() * 0.38,
+                                child: SmoothPageIndicator(
+                                  controller: controller.controller,
+                                  count: 3,
+                                  axisDirection: Axis.horizontal,
+                                  effect: const JumpingDotEffect(),
+                                  onDotClicked: (index) => controller.onDotClicked(index),
+                                ),
+                              )
+                            ]
+                          ),
                         ),
-                      )
-                    ]
+                        const SizedBox(height: Psizes.sm,),
+                        const CategoriesContainerWidget(),
+                        const SizedBox(height: Psizes.sm,),
+                        const FavoriteContainerWidget(),
+                      ]
+                    ),
                   ),
-                ),
-                const SizedBox(height: Psizes.sm,),
-                const CategoriesContainerWidget(),
-                const SizedBox(height: Psizes.sm,),
-                const FavoriteContainerWidget(),
+                )
               ],
             ),
           )

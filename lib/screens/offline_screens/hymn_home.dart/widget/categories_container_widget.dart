@@ -15,7 +15,7 @@ class CategoriesContainerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: PHelperFunctions.screenWidth(),
-      height: 200,
+      height: PHelperFunctions.screenHeight() * 0.25,
       padding: Psizes.defaultPaddingOnly2(),
       decoration: BoxDecoration(
         color: Get.isDarkMode ? PColor.darkerGrey : PColor.darkGrey,
