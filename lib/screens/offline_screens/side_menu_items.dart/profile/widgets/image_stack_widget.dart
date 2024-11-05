@@ -1,3 +1,8 @@
+import 'dart:io';
+
+import 'package:dlcm_ghs/screens/offline_screens/side_menu_items.dart/profile/controller/image_picker_controller.dart';
+import 'package:dlcm_ghs/screens/offline_screens/side_menu_items.dart/profile/widgets/photo_source.dart';
+import 'package:dlcm_ghs/screens/offline_screens/side_menu_items.dart/profile/widgets/view_profile_picture.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -12,6 +17,7 @@ class ImageStackWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final imageController = Get.put<ImagePickerController>(ImagePickerController());
     return Stack(
       children: [
         Container(
@@ -27,9 +33,18 @@ class ImageStackWidget extends StatelessWidget {
               minRadius: 40,
               backgroundColor: PColor.light,
               //radius: 40,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(100),
-                child: Image.asset(PTexts.guitarCoolImageString,fit: BoxFit.cover,height: 150,)
+              child: GestureDetector(
+                onTap: () => Get.to(() => ViewProfilePicture()),
+                child: Hero(
+                  tag: 'profilePicture',
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(100),
+                    child: Obx( () => imageController.displayedImagePath.value == '' ? 
+                                Image.asset(PTexts.guitarCoolImageString,fit: BoxFit.cover,height: 150,) : 
+                                   Image.file(File(imageController.displayedImagePath.value),fit: BoxFit.cover,width: 150,height: 150,),
+                    )
+                  ),
+                ),
               )
             ),
           )
@@ -37,15 +52,18 @@ class ImageStackWidget extends StatelessWidget {
         Positioned(
           bottom: 45,
           right: 100,
-          child: Container(
-            height: 35,
-            width: 35,
-            decoration: BoxDecoration(
-              border: Border.all(color: Get.isDarkMode ? PColor.light : PColor.dark,width: 1),
-              borderRadius: BorderRadius.circular(60),
-              color: PColor.primaryColor
-            ),
-            child: Center(child: IconButton(tooltip: 'Choose picture', icon: const Icon(Icons.camera_alt_outlined,size: 20,color: PColor.light,),onPressed: (){},))),
+          child: InkWell(
+            onTap: () => PhotoSource.photoSource(context),
+            child: Container(
+              height: 35,
+              width: 35,
+              decoration: BoxDecoration(
+                border: Border.all(color: Get.isDarkMode ? PColor.light : PColor.dark,width: 1),
+                borderRadius: BorderRadius.circular(60),
+                color: PColor.primaryColor
+              ),
+              child: Center(child: Icon(Icons.camera_alt_outlined,size: 20,color: PColor.light,))),
+          ),
         )
       ],
     );

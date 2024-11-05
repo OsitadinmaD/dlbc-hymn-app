@@ -8,6 +8,7 @@ import 'package:dlcm_ghs/screens/authentication_screens/verify_email_screen/veri
 import 'package:dlcm_ghs/screens/offline_screens/favorite_screen/persisting_services/favorite_service.dart';
 import 'package:dlcm_ghs/screens/offline_screens/hymnal_screens/detail_screen/settings/controller/font_size_controller.dart';
 import 'package:dlcm_ghs/screens/offline_screens/hymnal_screens/detail_screen/settings/controller/hymn_color_controller.dart';
+import 'package:dlcm_ghs/screens/offline_screens/side_menu_items.dart/profile/controller/image_picker_controller.dart';
 import 'package:dlcm_ghs/screens/offline_screens/side_menu_items.dart/profile/controller/profile_controller.dart';
 import 'package:dlcm_ghs/themedata/themedata.dart';
 import 'package:flutter/material.dart';
@@ -36,6 +37,7 @@ Future<void> initServices2() async {
   print('starting services....');
   await Get.putAsync<FontSizeController>(() async => FontSizeController());
   await Get.putAsync<ProfileController>(() async => ProfileController());
+  await Get.putAsync<ImagePickerController>(() async => ImagePickerController());
   // ignore: avoid_print
   print('All services started....');
 }
