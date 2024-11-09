@@ -55,4 +55,5 @@ static const String hymnLogoImageString = 'assets/images/hymn_home_images/ghs_lo
 static const String whatWeBelieveImageString = 'assets/images/hymn_home_images/what_we_believe.jpg';
 static const String guitarCoolImageString = 'assets/images/hymn_home_images/guitar_cool.jpg';
 static const String guitarNoTextImageString = 'assets/images/hymn_home_images/guitar_no_text.jpg';
+static const String musicalNotesImageString = 'assets/images/hymn_home_images/musical_note_symbols.png';
 }

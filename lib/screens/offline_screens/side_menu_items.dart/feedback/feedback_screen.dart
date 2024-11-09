@@ -6,7 +6,6 @@ import 'package:get/get.dart';
 import '../../../../utils/constants/helpers/helper_fncs.dart';
 import '../../../../utils/constants/sizes.dart';
 import '../../hymn_home.dart/controller/hymn_home_controller.dart';
-import 'widgets/attachment_screen.dart';
 import 'widgets/textfield_widget.dart';
 
 class FeedbackScreen extends StatelessWidget {
@@ -53,7 +52,6 @@ class FeedbackScreen extends StatelessWidget {
                   title: 'Expected Behaviour',
                 ),
                 const SizedBox(height: Psizes.spaceBetweenInputFields,),
-                const PicturesAttachments(),
                 const SizedBox(height: Psizes.spaceBetweenInputFields,),
                 Row(
             mainAxisAlignment: MainAxisAlignment.start,

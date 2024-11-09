@@ -113,7 +113,7 @@ Widget buildMenu(BuildContext context){
         child: ListView.separated(
           separatorBuilder: (context, index) => const Divider(color: PColor.light,),
           itemBuilder: (context, index) => ListTile(
-            title: Text(SideMenuModel.sideMenuItems[index].title, style: Theme.of(context).textTheme.titleLarge!.copyWith(color: PColor.light),),
+            title: SideMenuModel.sideMenuItems[index].title,
             leading: SideMenuModel.sideMenuItems[index].icon,
             onTap: SideMenuModel.sideMenuItems[index].onTap,     
           ),     

@@ -20,6 +20,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   initServices();
   initServices2();
+  initServices3();
   runApp(const MyApp());
 }
 
@@ -37,6 +38,13 @@ Future<void> initServices2() async {
   print('starting services....');
   await Get.putAsync<FontSizeController>(() async => FontSizeController());
   await Get.putAsync<ProfileController>(() async => ProfileController());
+  // ignore: avoid_print
+  print('All services started....');
+}
+
+Future<void> initServices3() async {
+  // ignore: avoid_print
+  print('starting services....');
   await Get.putAsync<ImagePickerController>(() async => ImagePickerController());
   // ignore: avoid_print
   print('All services started....');

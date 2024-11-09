@@ -36,9 +36,9 @@ class ViewProfilePicture extends StatelessWidget {
               tag: 'profilePicture',
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(100),
-                child: Obx( () => imageController.displayedImagePath.value == '' ? 
+                child: Obx( () => imageController.croppedImagePath.value == '' ? 
                                 Image.asset(PTexts.guitarCoolImageString,fit: BoxFit.cover,height: 150,) : 
-                                   Image.file(File(imageController.displayedImagePath.value),fit: BoxFit.cover,width: 150,height: 150,),
+                                   Image.file(File(imageController.croppedImagePath.value),fit: BoxFit.cover,width: 150,height: 150,),
                     )
                   ),
                 ), 

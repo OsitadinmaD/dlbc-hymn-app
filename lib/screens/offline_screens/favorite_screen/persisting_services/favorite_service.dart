@@ -92,8 +92,14 @@ class FavoriteService extends GetxService {
   }
 
   bool isFavorited(HymnModel hymn) {
-    bool favorited = favoriteHymns.contains(hymn);
+    bool favorited = false;
     setFavoritedBool(favorited: favorited);
+    for(var hymns in favoriteHymns){
+      if(hymns.title.toString().toLowerCase().contains(hymn.title.toString().toLowerCase())){
+        favorited = true;
+        setFavoritedBool(favorited: favorited);
+      }
+    }
     isFav.value = favorited;
     return isFav.value;
   }

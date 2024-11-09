@@ -1,6 +1,5 @@
 import 'package:dlcm_ghs/screens/offline_screens/side_menu_items.dart/profile/controller/profile_controller.dart';
 import 'package:dlcm_ghs/screens/offline_screens/side_menu_items.dart/profile/subscreen/edit_profile.dart';
-import 'package:dlcm_ghs/utils/constants/colors.dart';
 import 'package:dlcm_ghs/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -38,7 +37,7 @@ class ProfileInfoScreen extends StatelessWidget {
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
-                    color: Get.isDarkMode ? PColor.darkGrey : PColor.grey,
+                    color: Colors.transparent,
                   ),
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),

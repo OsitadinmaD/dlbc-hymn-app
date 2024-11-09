@@ -24,14 +24,14 @@ class ImageStackWidget extends StatelessWidget {
           height: PHelperFunctions.screenHeight() * 0.3,
           width: PHelperFunctions.screenWidth(),
           decoration: BoxDecoration(
-            color: Get.isDarkMode ? PColor.darkGrey : PColor.grey,
+            color: Colors.transparent,
             borderRadius: BorderRadius.circular(20),
           ),
           child: Center(
             child: CircleAvatar(
               maxRadius: 70,
               minRadius: 40,
-              backgroundColor: PColor.light,
+              backgroundImage: AssetImage(PTexts.hymnLogoImageString),
               //radius: 40,
               child: GestureDetector(
                 onTap: () => Get.to(() => ViewProfilePicture()),
@@ -39,9 +39,9 @@ class ImageStackWidget extends StatelessWidget {
                   tag: 'profilePicture',
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(100),
-                    child: Obx( () => imageController.displayedImagePath.value == '' ? 
+                    child: Obx( () => (imageController.croppedImagePath.value == '') ? 
                                 Image.asset(PTexts.guitarCoolImageString,fit: BoxFit.cover,height: 150,) : 
-                                   Image.file(File(imageController.displayedImagePath.value),fit: BoxFit.cover,width: 150,height: 150,),
+                                   Image.file(File(imageController.croppedImagePath.value),fit: BoxFit.cover,width: 150,height: 150,),
                     )
                   ),
                 ),

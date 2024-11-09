@@ -46,6 +46,8 @@ dependencies:
   share_plus: ^10.0.2
   url_launcher: ^6.3.0
   image_picker: ^1.1.2
+  image_cropper: ^8.0.2
+  flutter_image_compress: ^2.3.0
 
 dev_dependencies:
   flutter_test:
