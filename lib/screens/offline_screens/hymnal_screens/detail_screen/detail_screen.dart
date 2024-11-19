@@ -1,18 +1,19 @@
 import 'package:dlcm_ghs/screens/offline_screens/hymnal_screens/detail_screen/settings/settings.dart';
 import 'package:dlcm_ghs/screens/offline_screens/hymnal_screens/detail_screen/controller/details_page_controller.dart';
-import 'package:dlcm_ghs/screens/offline_screens/hymnal_screens/detail_screen/widget/buttom_appbar.dart';
 import 'package:dlcm_ghs/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../favorite_screen/persisting_services/favorite_service.dart';
+import '../model_classes/hymn_model_class.dart';
 import 'widget/hymn_content_view.dart';
+import 'widget/play_hymn_sound.dart';
 
 
 
 
 class DetailsScreen extends StatefulWidget {
-  final dynamic hymn;
+  final HymnModel hymn;
   const DetailsScreen({super.key, required this.hymn});
 
   @override
@@ -212,11 +213,11 @@ class _DetailsScreenState extends State<DetailsScreen> {
             ),
               ]
             ),
-          PButtomAppBarWidget(onPressedNext: () => pageController.getToNextIndex(),
-           onPressedBack:() => pageController.getToPreviousIndex())
         ]
         )
       ),
+      floatingActionButton: PlayHymnSound(widget: widget),
     );
   }
 }
+

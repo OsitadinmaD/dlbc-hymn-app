@@ -48,7 +48,7 @@ class ImagePickerController extends GetxService {
   }
   
   void selectImage({required ImageSource imageSource}) async {
-    final pickedImage = await ImagePicker().pickImage(source: imageSource);
+    final XFile? pickedImage = await ImagePicker().pickImage(source: imageSource);
     if(pickedImage != null){
       selectedImagePath.value = pickedImage.path;
       selectedImageSize.value = ((File(selectedImagePath.value).lengthSync()/1024/1024));
@@ -57,7 +57,7 @@ class ImagePickerController extends GetxService {
         Get.snackbar('Failed', 'Image size (${selectedImageSize.value.toStringAsFixed(2)} MB) is greater than 2MB',
         animationDuration: Duration(milliseconds: 500),
         onTap: (snack) => Get.back(),
-        backgroundColor: PColor.error,
+        backgroundColor: PColor.error.withOpacity(0.2),
         colorText: PColor.light,
         duration: Duration(milliseconds: 2500),
         isDismissible: true,
@@ -88,7 +88,7 @@ class ImagePickerController extends GetxService {
           Get.snackbar('Failed', 'An error occured while cropping image',
             animationDuration: Duration(milliseconds: 500),
             onTap: (snack) => Get.back(),
-            backgroundColor: PColor.error,
+            backgroundColor: PColor.error.withOpacity(0.2),
             colorText: PColor.light,
             duration: Duration(milliseconds: 2500),
             isDismissible: true,
@@ -100,7 +100,7 @@ class ImagePickerController extends GetxService {
            Get.snackbar('Failed', 'An error occured while cropping image',
             animationDuration: Duration(milliseconds: 500),
             onTap: (snack) => Get.back(),
-            backgroundColor: PColor.error,
+            backgroundColor: PColor.error.withOpacity(0.2),
             colorText: PColor.light,
             duration: Duration(milliseconds: 2500),
             isDismissible: true,
@@ -114,7 +114,7 @@ class ImagePickerController extends GetxService {
             final directory =  Directory.systemTemp;
           root.value = "/profile_picture.jpg";
         final targetPath = directory.absolute.path + root.value ;
-        XFile? compressedImageFile = await FlutterImageCompress.compressAndGetFile(
+        final XFile? compressedImageFile = await FlutterImageCompress.compressAndGetFile(
           croppedImagePath.value, 
           targetPath,
           quality: 90
@@ -125,7 +125,7 @@ class ImagePickerController extends GetxService {
           Get.snackbar('Success', 'Image Uploaded Successfully',
             animationDuration: Duration(milliseconds: 500),
             onTap: (snack) => Get.back(),
-            backgroundColor: PColor.success,
+            backgroundColor: PColor.success.withOpacity(0.2),
             colorText: PColor.light,
             duration: Duration(milliseconds: 2500),
             isDismissible: true,
@@ -136,7 +136,7 @@ class ImagePickerController extends GetxService {
           Get.snackbar('Failed', 'An error occured while compressing image',
             animationDuration: Duration(milliseconds: 500),
             onTap: (snack) => Get.back(),
-            backgroundColor: PColor.error,
+            backgroundColor: PColor.error.withOpacity(0.2),
             colorText: PColor.light,
             duration: Duration(milliseconds: 2500),
             isDismissible: true,
@@ -149,7 +149,7 @@ class ImagePickerController extends GetxService {
           Get.snackbar('Failed', 'An error occured while compressing image',
             animationDuration: Duration(milliseconds: 500),
             onTap: (snack) => Get.back(),
-            backgroundColor: PColor.error,
+            backgroundColor: PColor.error.withOpacity(0.2),
             colorText: PColor.light,
             duration: Duration(milliseconds: 2500),
             isDismissible: true,
@@ -163,7 +163,7 @@ class ImagePickerController extends GetxService {
       Get.snackbar('Failed', 'No image selected',
         animationDuration: Duration(milliseconds: 500),
         onTap: (snack) => Get.back(),
-        backgroundColor: PColor.error,
+        backgroundColor: PColor.error.withOpacity(0.2),
         colorText: PColor.light,
         duration: Duration(milliseconds: 2500),
         isDismissible: true,

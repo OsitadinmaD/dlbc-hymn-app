@@ -1,4 +1,5 @@
 import 'package:dlcm_ghs/screens/offline_screens/hymnal_screens/contents_screen/contents_screen.dart';
+import 'package:dlcm_ghs/screens/offline_screens/hymnal_screens/hymn_audio_player/audio_play.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -48,7 +49,7 @@ class CategoriesChipWidget extends StatelessWidget {
             PChipWidget(
               label: '   Audio   ', 
               icon: const Icon(Icons.audiotrack_rounded),
-              onTap: (){},
+              onTap: () => Get.to(() => AudioPlayer()),
             ),
           ],
         ),
