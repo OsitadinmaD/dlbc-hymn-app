@@ -6,21 +6,22 @@ import 'package:dlcm_ghs/screens/authentication_screens/sign_up_screen/sign_up_p
 import 'package:dlcm_ghs/screens/authentication_screens/success_screen/successful.dart';
 import 'package:dlcm_ghs/screens/authentication_screens/verify_email_screen/verify_email.dart';
 import 'package:dlcm_ghs/screens/offline_screens/favorite_screen/persisting_services/favorite_service.dart';
+import 'package:dlcm_ghs/screens/offline_screens/home_screen/home_screen.dart';
 import 'package:dlcm_ghs/screens/offline_screens/hymnal_screens/detail_screen/settings/controller/font_size_controller.dart';
 import 'package:dlcm_ghs/screens/offline_screens/hymnal_screens/detail_screen/settings/controller/hymn_color_controller.dart';
 import 'package:dlcm_ghs/screens/offline_screens/side_menu_items.dart/profile/controller/image_picker_controller.dart';
 import 'package:dlcm_ghs/screens/offline_screens/side_menu_items.dart/profile/controller/profile_controller.dart';
 import 'package:dlcm_ghs/themedata/themedata.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:get/get.dart';
-
-import 'screens/offline_screens/hymn_home.dart/hymn_home.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   initServices();
   initServices2();
   initServices3();
+  await FlutterDownloader.initialize();
   runApp(const MyApp());
 }
 
@@ -62,7 +63,7 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         theme: PThemeData.lightTheme(),
         darkTheme: PThemeData.darkTheme(),
-        home: const HymnHome(),
+        home: const HomeScreen(),
         //initialRoute: '/',
         getPages: [
           GetPage(name: '/', page: () => const OnBoardingScreen(),transition: Transition.leftToRightWithFade),

@@ -26,8 +26,6 @@ class PdfScreensController extends GetxController {
               pageSpacing: 2,
               controller: pdfViewerController,
               maxZoomLevel: 3.0,
-              
-              
             ),
           ),
           Positioned(

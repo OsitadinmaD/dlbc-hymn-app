@@ -50,48 +50,50 @@ class HymnHome extends StatelessWidget {
               children: [
                 const HomeSearchWidget(),
                 const SizedBox(height: Psizes.sm,),
-                SizedBox(
-                  width: PHelperFunctions.screenWidth(),
-                  height: PHelperFunctions.screenHeight() * 0.79,
-                  child: SingleChildScrollView(
-                    physics: BouncingScrollPhysics(),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        SizedBox(
-                          width: PHelperFunctions.screenWidth(),
-                          height: 125,
-                          child: Stack(
-                            children: [
-                              ListView(
-                                controller: controller.controller,
-                                scrollDirection: Axis.horizontal,
-                                children: const [
-                                  HomeImageCardWidget(image: PTexts.ghsGfix2ImageString,label: '',),
-                                  HomeImageCardWidget(image: PTexts.guitarCoolImageString,label: 'Feel \nThe \nRhythm...',),
-                                  HomeImageCardWidget(image: PTexts.guitarNoTextImageString,label: 'Feel \nThe \nHarmony...',),
-                                ],
-                              ),
-                              Positioned(
-                                bottom: 10,
-                                left: PHelperFunctions.screenWidth() * 0.38,
-                                child: SmoothPageIndicator(
+                Expanded(
+                  child: SizedBox(
+                    width: PHelperFunctions.screenWidth(),
+                    height: PHelperFunctions.screenHeight() * 0.79,
+                    child: SingleChildScrollView(
+                      physics: BouncingScrollPhysics(),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          SizedBox(
+                            width: PHelperFunctions.screenWidth(),
+                            height: 125,
+                            child: Stack(
+                              children: [
+                                ListView(
                                   controller: controller.controller,
-                                  count: 3,
-                                  axisDirection: Axis.horizontal,
-                                  effect: const JumpingDotEffect(),
-                                  onDotClicked: (index) => controller.onDotClicked(index),
+                                  scrollDirection: Axis.horizontal,
+                                  children: const [
+                                    HomeImageCardWidget(image: PTexts.ghsGfix2ImageString,label: '',),
+                                    HomeImageCardWidget(image: PTexts.guitarCoolImageString,label: 'Feel \nThe \nRhythm...',),
+                                    HomeImageCardWidget(image: PTexts.guitarNoTextImageString,label: 'Feel \nThe \nHarmony...',),
+                                  ],
                                 ),
-                              )
-                            ]
+                                Positioned(
+                                  bottom: 10,
+                                  left: PHelperFunctions.screenWidth() * 0.38,
+                                  child: SmoothPageIndicator(
+                                    controller: controller.controller,
+                                    count: 3,
+                                    axisDirection: Axis.horizontal,
+                                    effect: const JumpingDotEffect(),
+                                    onDotClicked: (index) => controller.onDotClicked(index),
+                                  ),
+                                )
+                              ]
+                            ),
                           ),
-                        ),
-                        const SizedBox(height: Psizes.sm,),
-                        const CategoriesContainerWidget(),
-                        const SizedBox(height: Psizes.sm,),
-                        const FavoriteContainerWidget(),
-                      ]
+                          const SizedBox(height: Psizes.sm,),
+                          const CategoriesContainerWidget(),
+                          const SizedBox(height: Psizes.sm,),
+                          const FavoriteContainerWidget(),
+                        ]
+                      ),
                     ),
                   ),
                 )

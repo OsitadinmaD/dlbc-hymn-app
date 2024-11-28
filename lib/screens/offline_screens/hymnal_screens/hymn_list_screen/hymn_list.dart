@@ -49,7 +49,6 @@ class HymnListScreen extends StatelessWidget {
                         subtitle: Text(hymns[index].subtitle, style: Theme.of(context).textTheme.titleSmall,),
                         trailing: Obx( () => IconButton(onPressed: (){
                             favoriteController.toggleFavoriteHymns(hymns[index]);
-                            favoriteController.saveToSharedPref();
                           },
                           tooltip: favoriteController.favoriteHymns.contains(hymns[index]) ? 'Remove from Favorite' : 'Add to Favorite',
                           icon: Icon(Icons.favorite_rounded,size: 25,
