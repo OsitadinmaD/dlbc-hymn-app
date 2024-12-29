@@ -75,6 +75,7 @@ class SearchBarScreen extends StatelessWidget {
                               radius: 25,
                               child: Image.asset(PTexts.hymnLogoImageString),
                             ),
+                            trailing: Icon(Icons.arrow_forward_ios_rounded, size: 25 ,color: Get.isDarkMode ? Colors.white : Colors.black,),
                             title: Text(searchedHymn[index].title, style: Theme.of(context).textTheme.titleLarge,),
                             subtitle: Text(searchedHymn[index].subtitle, style: Theme.of(context).textTheme.titleSmall,),
                             onTap: () => Get.to(() => DetailsScreen(hymn: searchedHymn[index],)),
@@ -95,6 +96,7 @@ class SearchBarScreen extends StatelessWidget {
                               radius: 25,
                               child: Image.asset(PTexts.hymnLogoImageString),
                             ),
+                            trailing: Icon(Icons.arrow_forward_ios_rounded, size: 25 ,color: Get.isDarkMode ? Colors.white : Colors.black,),
                             title: Text(hymns[index].title, style: Theme.of(context).textTheme.titleLarge,),
                             subtitle: Text(hymns[index].subtitle, style: Theme.of(context).textTheme.titleSmall,),
                             onTap: () => Get.to(() => DetailsScreen(

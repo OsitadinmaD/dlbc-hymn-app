@@ -1,4 +1,3 @@
-import 'package:dlcm_ghs/screens/offline_screens/favorite_screen/persisting_services/favorite_service.dart';
 import 'package:dlcm_ghs/screens/offline_screens/hymnal_screens/model_classes/hymn_model_class.dart';
 import 'package:dlcm_ghs/screens/offline_screens/hymnal_screens/search_list_screen/search_screen.dart';
 import 'package:dlcm_ghs/utils/constants/sizes.dart';
@@ -15,7 +14,7 @@ class HymnListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put<SearchBarController>(SearchBarController());
-    final favoriteController = Get.put<FavoriteService>(FavoriteService());
+   // final favoriteController = Get.put<FavoriteService>(FavoriteService());
   
 
     List<HymnModel> hymns = controller.hymnListViews;
@@ -47,14 +46,7 @@ class HymnListScreen extends StatelessWidget {
                         ),
                         title: Text(hymns[index].title, style: Theme.of(context).textTheme.titleLarge,),
                         subtitle: Text(hymns[index].subtitle, style: Theme.of(context).textTheme.titleSmall,),
-                        trailing: Obx( () => IconButton(onPressed: (){
-                            favoriteController.toggleFavoriteHymns(hymns[index]);
-                          },
-                          tooltip: favoriteController.favoriteHymns.contains(hymns[index]) ? 'Remove from Favorite' : 'Add to Favorite',
-                          icon: Icon(Icons.favorite_rounded,size: 25,
-                              color: controller.favoriteColor(hymns[index]),
-                          )),
-                        ),
+                        trailing: Icon(Icons.arrow_forward_ios_rounded, size: 25 ,color: Get.isDarkMode ? Colors.white : Colors.black,),
                         onTap: () => Get.to(() => DetailsScreen(hymn: hymns[index])),
                         )
                     ),

@@ -13,6 +13,7 @@ import 'widget/categories_container_widget.dart';
 import 'widget/favorite_container.dart';
 import 'widget/home_card_image.dart';
 import 'widget/home_search_widget.dart';
+import 'widget/music_script_Button.dart';
 
 class HymnHome extends StatelessWidget {
   const HymnHome({super.key});
@@ -90,6 +91,8 @@ class HymnHome extends StatelessWidget {
                           ),
                           const SizedBox(height: Psizes.sm,),
                           const CategoriesContainerWidget(),
+                          const SizedBox(height: Psizes.sm,),
+                          const MusicScriptButton(),
                           const SizedBox(height: Psizes.sm,),
                           const FavoriteContainerWidget(),
                         ]

@@ -14,6 +14,7 @@ import '../../../../utils/constants/colors.dart';
 class InAppWebViewController extends GetxController{
   var loadProgress = 0.0.obs;
   var downloadProgress = 0.obs;
+  Rx<bool> connectionThrough = false.obs;
   Rx<int> connectionStatus = 0.obs;
   Rx<String> pageTitle = ''.obs;
   late final String? taskID;
@@ -129,19 +130,23 @@ class InAppWebViewController extends GetxController{
     initWebView();
   }
 
-  void internetConnectionChecker() {
-    _listener = InternetConnectionChecker().onStatusChange.listen(
-      (InternetConnectionStatus status){
-        switch(status){
-          case InternetConnectionStatus.connected:
-          connectionStatus.value = 1;
-          break;
-          case InternetConnectionStatus.disconnected:
-          connectionStatus.value = 0;
-          break;
-        }
-      }
-    );
+  void internetConnectionChecker() async{
+    final customChecker = InternetConnectionChecker.createInstance(
+    addresses: [
+      AddressCheckOption(uri: Uri.parse('https://dclm.org')),
+      AddressCheckOption(uri: Uri.parse('https://dclm.org/'),),
+    ],
+  );
+
+  bool isConnected = await customChecker.hasConnection;
+  switch(isConnected){
+    case true:
+      connectionStatus.value = 1;
+      break;
+    case false:
+      connectionStatus.value = 0;
+  }
+  //print('Custom instance conn ected: $isConnected');
   }
 
   @override

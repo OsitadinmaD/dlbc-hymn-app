@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../model_classes/hymn_model_class.dart';
 import '../settings/controller/font_size_controller.dart';
 import '../settings/controller/hymn_color_controller.dart';
 
 class HymnContentView {
-  dynamic hymn;
+  HymnModel hymn;
   HymnContentView({required this.hymn});
 
   final sizeController = Get.put(FontSizeController());
