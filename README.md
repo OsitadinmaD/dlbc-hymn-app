@@ -1,17 +1,3 @@
 # dlcm_ghs
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-"# dlbc-hymn-app" 
+A Hymn app that provides users access to all the hymns and music script of the Deeper Life Bible Church,  the Bible doctrine, and the messages of the General Superintendent. It provides a seamless experience and a simple interface to the user.
